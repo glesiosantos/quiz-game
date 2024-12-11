@@ -1,7 +1,9 @@
 <script setup></script>
 
 <template>
-  <div>Quiz Game</div>
+  <div class="flex">
+    <img src="./assets/logo.png"/>
+  </div>
 </template>
 
 <style scoped></style>
