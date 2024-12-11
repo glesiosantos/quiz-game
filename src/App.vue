@@ -10,11 +10,31 @@
   </div>
 </template>
 
-<script setup>
-import axios from 'axios'
-import { onMounted, ref} from 'vue'
+<script>
+export default {
+  data() {
+    return {
+      quiz: {
+        question: undefined,
+        incorrectAnswers: undefined,
+        correctAnswer: undefined,
+      }
+    }
+  },
+  async created () {
+    const response = await this.axios.get('https://opentdb.com/api.php?amount=1&category=18')
+    const data = response.data.results[0]
+    this.quiz.question = data.question
+    this.quiz.correctAnswer = data.correct_answer
+    this.quiz.incorrectAnswers = data.incorrect_answers
+  }
+}
 
-let quiz = ref({
+
+</script>
+
+
+<!-- let quiz = ref({
   question: null,
   incorrect_answers: '',
   correct_answer: ''
@@ -27,5 +47,4 @@ async function loadQuiz () {
 }
 console.log(quiz)
 
-onMounted(() => loadQuiz)
-</script>
+onMounted(() => loadQuiz) -->
