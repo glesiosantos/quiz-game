@@ -3,4 +3,10 @@ import './assets/main.css'
 import { createApp } from 'vue'
 import App from './App.vue'
 
-createApp(App).mount('#app')
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
+createApp(App)
+  .use(VueAxios, axios)
+  .mount('#app')
+
